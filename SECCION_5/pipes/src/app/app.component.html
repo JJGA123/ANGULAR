@@ -1,0 +1,179 @@
+<h1 class="mt-3">Pipes <small>Angular</small></h1>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Variable</th>
+                    <th>Pipe</th>
+                    <th>Salida</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{nombre2}}</td>
+                    <td>capitalizado</td>
+                    <td>{{nombre2 | capitalizado:24:true:'Hola':true}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{nombre}}</td>
+                    <td>uppercase</td>
+                    <td>{{nombre | uppercase}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{nombre}}</td>
+                    <td>uppercase</td>
+                    <td>{{nombre | lowercase}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{nombre}}</td>
+                    <td>slice:3</td>
+                    <td>{{nombre | slice:3}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{nombre}}</td>
+                    <td>slice:3:6</td>
+                    <td>{{nombre | slice:3:6}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{arreglo}}</td>
+                    <td>slice:5:9</td>
+                    <td>{{arreglo | slice:5:9}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{PI}}</td>
+                    <td>PI (number:'1.0-6'})</td>
+                    <td>{{PI | number:'1.0-6'}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{PI}}</td>
+                    <td>PI (number:'.0-3'})</td>
+                    <td>{{PI | number:'.0-3'}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{porcentaje}}</td>
+                    <td>Porcentaje</td>
+                    <td>{{porcentaje | percent}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{porcentaje}}</td>
+                    <td>Porcentaje (:'2.2-2')</td>
+                    <td>{{porcentaje | percent:'2.2-2'}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{salario}}</td>
+                    <td>Salario</td>
+                    <td>{{salario | currency}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{salario}}</td>
+                    <td>Salario (:'EUR')</td>
+                    <td>{{salario | currency:'EUR'}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{salario}}</td>
+                    <td>Salario (:'CAD':'symbol':'.0-0')</td>
+                    <td>{{salario | currency:'CAD':'symbol':'.0-0'}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{salario}}</td>
+                    <td>Salario (:'CAD':'symbol-narrow':'.0-0')</td>
+                    <td>{{salario | currency:'CAD':'symbol-narrow':'.0-0'}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{valorPromesa}}</td>
+                    <td>asycn</td>
+                    <td>{{valorPromesa | async}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{fecha}}</td>
+                    <td>date</td>
+                    <td>{{fecha | date}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{fecha}}</td>
+                    <td>date (:'medium')</td>
+                    <td>{{fecha | date:'medium'}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{fecha}}</td>
+                    <td>date (:'short')</td>
+                    <td>{{fecha | date:'short'}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{fecha}}</td>
+                    <td>date (:'MMMM -dd')</td>
+                    <td>{{fecha | date:'MMMM - dd'}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{fecha}}</td>
+                    <td>date (:'MMMM - dd':'':'en')</td>
+                    <td>{{fecha | date:'MMMM - dd':'':'en'}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{fecha}}</td>
+                    <td>date (:'MMMM - dd':'':{{idioma}})</td>
+                    <br>
+                    <button (click)="setIdioma('es')" class="btn btn-outline-warning mx-1 my-1">Español</button>
+                    <button (click)="setIdioma('en')" class="btn btn-outline-primary mx-1 my-1">Ingles</button>
+                    <button (click)="setIdioma('fr')" class="btn btn-outline-danger mx-1 my-1">Francés</button>
+                    <td>{{fecha | date:'MMMM - dd':'':idioma}}</td>
+                </tr>
+
+                <tr>
+                    <td>{{nombre}}</td>
+                    <td>contrasena</td>
+                    <br>
+                    <button (click)="setContrasena()" class="btn btn-outline-info mx-1 my-1">{{mostrar}}</button>
+                    <td>{{nombre | contrasena:mostrarC}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <h4>Slice:4:8</h4>
+        <hr>
+        <ul>
+            <li *ngFor="let item of arreglo | slice:4:8">{{item}}</li>
+        </ul>
+
+        <h4>JSON</h4>
+        <hr>
+        <div class="row mb-5">
+            <pre>
+            <div class="col">{{heroe | json}}</div>
+          </pre>
+        </div>
+
+        <h4>Domseguro</h4>
+        <hr>
+        <div class="row">
+            <div class="col my-5">
+                <iframe width="560" height="315" [src]="video | domseguro" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+        </div>
+    </div>
+</div>
