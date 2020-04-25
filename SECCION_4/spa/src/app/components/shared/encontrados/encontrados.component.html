@@ -1,0 +1,11 @@
+<h1>Resultado de la busqueda: <small>{{texto}}</small></h1>
+<hr>
+<div class="container" *ngIf="heroes.length==0">
+    <div class="alert alert-primary" role="alert">
+        No se han encontrado coincidencias.
+    </div>
+    <a href="javascript:history.back()" class="btn btn-outline-danger">Regresar</a>
+</div>
+<div class="card-columns" *ngIf="heroes.length>0">
+    <app-heroe-tarjeta (heroeSeleccionado)="verHeroe( $event )" [heroe]="heroe" [index]="heroe.index" *ngFor="let heroe of heroes"></app-heroe-tarjeta>
+</div>

@@ -1,2 +1,3 @@
 Sección 2: Gentil introducción a TypeScript y ES6
 Sección 3: Aplicación #1: Hola Mundo
+Sección 4: Aplicación #2: Aplicación de una sola página (SPA)
