@@ -3,3 +3,4 @@ Sección 3: Aplicación #1: Hola Mundo
 Sección 4: Aplicación #2: Aplicación de una sola página (SPA)
 Sección 5: Pipes - Transforman los valores mostrados en pantalla
 Sección 6: Aplicación #3: SpotiApp
+Sección 7: Aplicación #4: Lista de deseos - IONIC App
