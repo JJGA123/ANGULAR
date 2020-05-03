@@ -1,0 +1,19 @@
+<div [ngClass]="alerta" role="alert">
+    A simple primary alert—check it out!
+</div>
+<button type="button" class="btn btn-info mx-1 my-1" (click)="alerta = 'alert-info'">Info</button>
+<button type="button" class="btn btn-danger" (click)="alerta = 'alert-danger'">Danger</button>
+
+<br><br>
+
+<h3 [ngClass]="{'text-danger': propiedades.danger,'text-info': !propiedades.danger }">Hola mundo</h3>
+<button type="button" [ngClass]="{'btn btn-danger': !propiedades.danger,'btn btn-info': propiedades.danger }" (click)="propiedades.danger = !propiedades.danger">Cambiar</button>
+
+<br><br>
+
+<button (click)="ejecutar()" class="btn btn-primary" type="button" name="button" [disabled]="loading">
+    <i [ngClass]="{'fa-sync fa-spin':loading, 'fa-save':!loading}"
+        class="fas mx-2"></i>
+    <span *ngIf="!loading">Guardar cambios</span>
+    <span *ngIf="loading">Por favor espere</span>
+</button>
