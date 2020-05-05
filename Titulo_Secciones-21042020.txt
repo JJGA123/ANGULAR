@@ -5,3 +5,4 @@ Sección 5: Pipes - Transforman los valores mostrados en pantalla
 Sección 6: Aplicación #3: SpotiApp
 Sección 7: Aplicación #4: Lista de deseos - IONIC App
 Sección 8: Componentes, directivas de atributos, ciclo de vida y más...
+Sección 9: Aplicación #5: Aplicación con autenticación Auth0
