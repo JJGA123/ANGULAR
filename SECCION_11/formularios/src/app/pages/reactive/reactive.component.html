@@ -1,0 +1,117 @@
+<h4>Formularios <small> reactivo </small></h4>
+<hr>
+<form autocomplete="off" [formGroup]="form" (ngSubmit)="guardar()">
+
+    <div>
+
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Nombre</label>
+            <div class="col">
+
+                <input class="form-control" type="text" placeholder="Nombre" formControlName="nombre" [class.is-invalid]="nombreNoValido">
+                <small class="form-text text-danger" *ngIf="nombreNoValido">El nombre debe tener minimo 5 caracteres.</small>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-2 col-form-label">Apellido</label>
+            <div class="col">
+
+                <input class="form-control" type="text" placeholder="Apellido" formControlName="apellido" [class.is-invalid]="apellidoNoValido">
+                <small class="form-text text-danger" *ngIf="apellidoNoValido">El apellido debe tener minimo 5 caracteres.</small>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Correo</label>
+        <div class="col">
+
+            <input class="form-control" type="email" placeholder="Correo electrónico" formControlName="correo" [class.is-invalid]="correoNoValido">
+            <small class="form-text text-danger" *ngIf="correoNoValido">El correo debe ser tipo email.</small>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Usuario</label>
+        <div class="col">
+
+            <input class="form-control" type="text" placeholder="Nombre de usuario" formControlName="usuario" [class.is-invalid]="usuarioNoValido">
+            <small class="form-text text-danger" *ngIf="usuarioNoValido">El nombre del usuario ya fue tomado.</small>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Contraseña</label>
+        <div class="col">
+
+            <input class="form-control" type="password" placeholder="Contraseña" formControlName="contrasena" [class.is-invalid]="contrasenaNoValido">
+            <small class="form-text text-danger" *ngIf="contrasenaNoValido">La contraseña de tener minimo 5 caracteres.</small>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Repetir contraseña</label>
+        <div class="col">
+
+            <input class="form-control" type="password" placeholder="Repetir contraseña" formControlName="contrasenarep" [class.is-invalid]="contrasenaRepNoValido">
+            <small class="form-text text-danger" *ngIf="contrasenaRepNoValido">La contraseña de tener minimo 5 caracteres y debe coincidir con la contraseña.</small>
+        </div>
+    </div>
+
+    <div class="form-group row" formGroupName="direccion">
+        <label class="col-2 col-form-label">Dirección</label>
+        <div class="form-row col">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Distrito" formControlName="distrito" [class.is-invalid]="distritoNoValido">
+                <small class="form-text text-danger" *ngIf="distritoNoValido">El distrito debe tener minimo 5 caracteres.</small>
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Ciudad" formControlName="ciudad" [class.is-invalid]="ciudadNoValido">
+                <small class="form-text text-danger" *ngIf="ciudadNoValido">La ciudad debe tener minimo 5 caracteres.</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Pasatiempo</th>
+                        <th>Borrar</th>
+                    </tr>
+                </thead>
+                <tbody formArrayName="pasatiempos">
+                    <tr *ngFor="let control of pasatiempos.controls, let i = index">
+                        <td>{{i+1}}</td>
+                        <td>
+                            <input class="form-control" type="text" [formControlName]="i" [class.is-invalid]="pasatiempoNoValido(i)">
+                            <small class="form-text text-danger" *ngIf="pasatiempoNoValido(i)">La pasatiempo debe tener minimo 5 caracteres.</small>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger" (click)="borrarPasatiempo(i)">Borrar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="m-5" style="float:none;text-align:center;">
+                <button class="btn btn-primary col-6" type="button" (click)="agregarPasatiempos()">Agregar pasatiempo</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="form-group row">
+        <label class="col-2 col-form-label">&nbsp;</label>
+        <div class="input-group col-md">
+            <button type="submit" class="btn btn-outline-primary btn-block">
+        Guardar
+      </button>
+        </div>
+    </div>
+
+</form>
