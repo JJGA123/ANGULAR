@@ -8,3 +8,4 @@ Sección 8: Componentes, directivas de atributos, ciclo de vida y más...
 Sección 9: Aplicación #5: Aplicación con autenticación Auth0
 Sección 10: Bonus: Login tradicional y manejo de tokens - Firebase
 Sección 11: Formularios en Angular
+Sección 12: Aplicación #6: Uso del HTTP - CRUD - Firebase
