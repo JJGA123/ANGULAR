@@ -9,3 +9,6 @@ Sección 9: Aplicación #5: Aplicación con autenticación Auth0
 Sección 10: Bonus: Login tradicional y manejo de tokens - Firebase
 Sección 11: Formularios en Angular
 Sección 12: Aplicación #6: Uso del HTTP - CRUD - Firebase
+Sección 13: Aplicación #7: FireChat - AngularFire2
+Sección 14: Applicación #8: PeliculasApp
+Sección 15: Aplicación #9: Uso de Google Maps
