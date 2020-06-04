@@ -1,32 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 
+import { HttpClientModule } from '@angular/common/http';
 
-// servicios
-import { YoutubeService } from "./services/youtube.service";
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { VideoYoutubePipe } from './pipes/video-youtube.pipe';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     NavbarComponent,
-    VideoYoutubePipe
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    HttpModule
+    HttpClientModule
   ],
-  providers: [
-    YoutubeService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

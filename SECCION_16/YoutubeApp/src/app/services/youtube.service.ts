@@ -1,47 +1,43 @@
 import { Injectable } from '@angular/core';
-import { Http, URLSearchParams }  from "@angular/http";
-import 'rxjs/Rx';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { YoutubeResponse } from '../models/youtube.models';
+import { map } from 'rxjs/operators';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class YoutubeService {
 
-  private youtubeUrl:string = "https://www.googleapis.com/youtube/v3";
-  private apikey:string = "AIzaSyCe7edHGrVL0kPNhsLpyyTnGZSu_ACTOMk";
-  private playlist:string = "UUuaPTYj15JSkETGnEseaFFg";
-
-  private nextPageToken:string = "";
-
-  constructor( public http:Http ) { }
-
-  getVideos(){
-
-    let url = `${ this.youtubeUrl }/playlistItems`;
-    let params = new URLSearchParams();
-
-    params.set( 'part', 'snippet' );
-    params.set( 'maxResults', '10' );
-    params.set( 'playlistId', this.playlist );
-    params.set( 'key', this.apikey );
-
-    if( this.nextPageToken ){
-      params.set( 'pageToken', this.nextPageToken );
-    }
+  private youtubeUrl = 'https://www.googleapis.com/youtube/v3';
+  private apikey     = 'AIzaSyBHLZzytcylRRpuFepi2mHyMD3Ede-r7-s';
+  private playlist   = 'UUuaPTYj15JSkETGnEseaFFg';
+  private nextPageToken = '';
 
 
-    return this.http.get( url, { search: params } )
-            .map( res =>{
-                console.log( res.json() );
-                this.nextPageToken = res.json().nextPageToken;
+  constructor( private http: HttpClient ) {}
 
-                let videos:any[]=[];
-                for( let video of res.json().items ){
-                  let snippet = video.snippet;
-                  videos.push( snippet );
-                }
+  getVideos() {
 
-                return videos;
-            });
+    const url = `${ this.youtubeUrl }/playlistItems`;
+
+    const params = new HttpParams()
+        .set('part', 'snippet')
+        .set('maxResults', '20')
+        .set('playlistId', this.playlist )
+        .set('key', this.apikey )
+        .set('pageToken', this.nextPageToken )
+
+    return this.http.get<YoutubeResponse>( url, { params } )
+              .pipe(
+
+                map( resp => {
+                  this.nextPageToken = resp.nextPageToken;
+                  return resp.items;
+                }),
+
+                map( items => items.map( video => video.snippet ) )
+
+              )
 
   }
-
 }
