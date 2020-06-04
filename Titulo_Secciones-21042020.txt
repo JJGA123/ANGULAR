@@ -13,3 +13,5 @@ Sección 13: Aplicación #7: FireChat - AngularFire2
 Sección 14: Applicación #8: PeliculasApp
 Sección 15: Aplicación #9: Uso de Google Maps
 Sección 16: Aplicación #10: Canal de Youtube
+Sección 17: Desplegando las aplicaciones a producción.
+Sección 18: Documentaciones útiles
