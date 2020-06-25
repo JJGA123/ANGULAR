@@ -15,3 +15,4 @@ Sección 15: Aplicación #9: Uso de Google Maps
 Sección 16: Aplicación #10: Canal de Youtube
 Sección 17: Desplegando las aplicaciones a producción.
 Sección 18: Documentaciones útiles
+Sección 19:Bonus - Fileupload hacia Firebase
