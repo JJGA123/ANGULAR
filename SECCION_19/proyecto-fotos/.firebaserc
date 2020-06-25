@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "fotos-eb6aa": {
+      "hosting": {
+        "proyecto-fotos": [
+          "fotos-eb6aa"
+        ]
+      }
+    }
+  }
+}

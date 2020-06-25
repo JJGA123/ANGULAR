@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "proyecto-fotos",
+      "public": "dist/proyecto-fotos",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}
